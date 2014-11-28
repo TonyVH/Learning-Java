@@ -1,7 +1,7 @@
 /*
     Use the Pythagorean theorem to
     find the length of the hypotenuse
-    given the lngths of the two opposing
+    given the lengths of the two opposing
     sides.
 */
 class Hypot {
