@@ -4,7 +4,7 @@ class Prime {
         int i, j;
         boolean isprime;
 
-        for(i=2; i < 100; i++) {
+        for(i = 2; i < 100; i++) {
             isprime = true;
 
             // See if the number is evenly divisible
