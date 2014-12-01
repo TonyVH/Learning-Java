@@ -8,22 +8,22 @@ class LogicalOpTable2 {
         p = 1; q = 1;
         System.out.print(p + "\t" + q + "\t");
         System.out.print((p&q) + "\t" + (p|q) + "\t");
-        System.out.println((p^q) + "\t" + 0);
+        System.out.println((p^q) + "\t" + Math.abs(p-1));   // (!p)
        
         p = 1; q = 0;
         System.out.print(p + "\t" + q + "\t");
         System.out.print((p&q) + "\t" + (p|q) + "\t");
-        System.out.println((p^q) + "\t" + 0);
+        System.out.println((p^q) + "\t" + Math.abs(p-1));   // (!p)
        
         p = 0; q = 1;
         System.out.print(p + "\t" + q + "\t");
         System.out.print((p&q) + "\t" + (p|q) + "\t");
-        System.out.println((p^q) + "\t" + 1);
+        System.out.println((p^q) + "\t" + Math.abs(p-1));   // (!p)
         
         p = 0; q = 0;
         System.out.print(p + "\t" + q + "\t");
         System.out.print((p&q) + "\t" + (p|q) + "\t");
-        System.out.println((p^q) + "\t" + 1);
+        System.out.println((p^q) + "\t" + Math.abs(p-1));   // (!p)
 
     }
 }
