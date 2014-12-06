@@ -1,13 +1,17 @@
-// This program creates two Vehicle objects.
-
+// Add range to Vehicle class.
 class Vehicle {
     int passengers; // Number of passengers
     int fuelcap; // Fuel capacity in gallons
     int mpg;     // Fuel consumption in miles per gallon
+
+    // Display the range
+    void range() {
+        System.out.println("Range is " + fuelcap * mpg);
+    }
 }
 
 // This class declares an object of type Vehicle
-class TwoVehicles {
+class AddMethod {
     public static void main(String args[]) {
         Vehicle minivan = new Vehicle();
         Vehicle sportscar = new Vehicle();
@@ -28,9 +32,10 @@ class TwoVehicles {
         range1 = minivan.fuelcap * minivan.mpg;
         range2 = sportscar.fuelcap * sportscar.mpg;
 
-        System.out.println("Minivan can carry " + minivan.passengers +
-                           " with a range of " + range1 + " miles.");
-        System.out.println("Sportscar can carry " + sportscar.passengers +
-                           " with a range of " + range2 + " miles.");
+        System.out.print("Minivan can carry " + minivan.passengers + ". ");
+        minivan.range();
+        
+        System.out.print("Sportscar can carry " + sportscar.passengers + ". ");
+        sportscar.range();
     }
 }
