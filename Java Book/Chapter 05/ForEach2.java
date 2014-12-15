@@ -1,16 +1,21 @@
-// Use a for-each style for loop.
+// Use for-each style for on a two-dimentional array.
 class ForEach2 {
     public static void main(String args[]) {
-        int nums[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int sum = 0;
+        int nums[][] = new int[3][5];
 
-        // Use for-each style for to display and sum the values
-        // until 5 is found, then break.
-        for(int x: nums) {
-            System.out.println("Value is: " + x);
-            sum += x;
-            if(x == 5) {
-                break;
+        // Give nums some values
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < 5; j++) {
+                nums[i][j] = i + j + j * i;
+            }
+        }
+
+        // Use for-each for loop to display and sum the values
+        for(int x[]: nums) {
+            for(int y: x) {
+                System.out.println("Value is: " + y);
+                sum += y;
             }
         }
 
