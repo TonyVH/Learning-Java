@@ -2,11 +2,11 @@
 class Queue {
     // These members are now private
     private char queue[];
-    private int putloc, getloc;
+    private int putIndex, getIndex;
 
     Queue(int size) {
         queue = new char[size];
-        putloc = getloc = 0;
+        putIndex = getIndex = 0;
     }
 
     // Put a character into the queue
@@ -16,7 +16,7 @@ class Queue {
             return;
         }
 
-        queue[putloc++] = ch;
+        queue[putIndex++] = ch;
     }
 
     // Get a character from the queue
@@ -26,20 +26,14 @@ class Queue {
             return (char) 0;
         }
 
-        return queue[getloc++];
+        return queue[getIndex++];
     }
 
     private boolean queueIsFull() {
-        if(putloc == queue.length) {
-            return true;
-        }
-        return false;
+        return (putIndex == queue.length);
     }
 
     private boolean queueIsEmpty() {
-        if(getloc == putloc) {
-            return true;
-        }
-        return false;
+        return (getIndex == putIndex);
     }
 }
