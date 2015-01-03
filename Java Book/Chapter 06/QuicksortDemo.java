@@ -39,7 +39,7 @@ class Quicksort {
     }
 }
 
-class QSDemo {
+class QuicksortDemo {
     public static void main(String args[]) {
         char a[] = {'d', 'x', 'a', 'r', 'p', 'j', 'i'};
         int i;
