@@ -5,6 +5,19 @@ class TwoDShape {
     private double width;
     private double height;
 
+    TwoDShape() {
+        width = height = 0.0;
+    }
+
+    TwoDShape(double w, double h) {
+        width = w;
+        height = h;
+    }
+
+    TwoDShape(double x) {
+        width = height = x;
+    }
+
     // Accessor methods for width and height.
     double getWidth() {
         return width;
@@ -30,6 +43,19 @@ class TwoDShape {
 
 // A subclass of TwoDShape for Rectangles.
 class Rectangle extends TwoDShape {
+
+    Rectangle() {
+        super();
+    }
+
+    Rectangle(double w, double h) {
+        super(w, h);
+    }
+
+    Rectangle(double x) {
+        super(x);
+    }
+
     boolean isSquare() {
         return getWidth() == getHeight();
     }
@@ -41,7 +67,22 @@ class Rectangle extends TwoDShape {
 
 // A subclass of TwoDShape for Triangles.
 class Triangle extends TwoDShape {
-    String style;
+    private String style;
+
+    Triangle() {
+        super();
+        style = "none";
+    }
+
+    Triangle(String s, double w, double h) {
+        super(w, h);
+        style = s;
+    }
+
+    Triangle(double x) {
+        super(x);
+        style = "filled";
+    }
 
     double area() {
         return getWidth() * getHeight() / 2;
@@ -52,22 +93,37 @@ class Triangle extends TwoDShape {
     }
 }
 
+class ColorTriangle extends Triangle {
+    private String color;
+
+    ColorTriangle (String c, String s,
+                   double w, double h) {
+        super(s, w, h);
+        color = c;
+    }
+
+    String getColor() {
+        return color;
+    }
+
+    void setColor(String c) {
+        color = c;
+    }
+
+    void showColor() {
+        System.out.println("Color is: " + color);
+    }
+}
+
 class Shapes {
     public static void main(String args[]) {
-        Triangle t1 = new Triangle();
-        Triangle t2 = new Triangle();
-
-        t1.setWidth(4.0);
-        t1.setHeight(4.0);
-        t1.style = "filled";
-
-        t2.setWidth(8.0);
-        t2.setHeight(12.0);
-        t2.style = "outlined";
+        ColorTriangle t1 = new ColorTriangle("Blue", "outlined", 8.0, 12.0);
+        ColorTriangle t2 = new ColorTriangle("Red", "filled",  2.0, 2.0);
 
         System.out.println("Info for t1: ");
         t1.showStyle();
         t1.showDim();
+        t1.showColor();
         System.out.println("Area is " + t1.area());
 
         System.out.println();
@@ -75,6 +131,9 @@ class Shapes {
         System.out.println("Info for t2: ");
         t2.showStyle();
         t2.showDim();
+        t2.showColor();
         System.out.println("Area is " + t2.area());
+
+        System.out.println();
     }
 }
