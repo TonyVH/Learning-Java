@@ -18,6 +18,11 @@ class TwoDShape {
         width = height = x;
     }
 
+    TwoDShape(TwoDShape ob) {
+        width = ob.width;
+        height = ob.height;
+    }
+
     // Accessor methods for width and height.
     double getWidth() {
         return width;
@@ -84,6 +89,11 @@ class Triangle extends TwoDShape {
         style = "filled";
     }
 
+    Triangle(Triangle ob) {
+        super(ob);
+        style = ob.style;
+    }
+
     double area() {
         return getWidth() * getHeight() / 2;
     }
@@ -102,6 +112,11 @@ class ColorTriangle extends Triangle {
         color = c;
     }
 
+    ColorTriangle(ColorTriangle ob) {
+        super(ob);
+        color = ob.color;
+    }
+
     String getColor() {
         return color;
     }
@@ -117,13 +132,13 @@ class ColorTriangle extends Triangle {
 
 class Shapes {
     public static void main(String args[]) {
-        ColorTriangle t1 = new ColorTriangle("Blue", "outlined", 8.0, 12.0);
-        ColorTriangle t2 = new ColorTriangle("Red", "filled",  2.0, 2.0);
+        Triangle t1 = new Triangle("outlined", 8.0, 12.0);
+        Triangle t2 = new Triangle(t1);
+
 
         System.out.println("Info for t1: ");
         t1.showStyle();
         t1.showDim();
-        t1.showColor();
         System.out.println("Area is " + t1.area());
 
         System.out.println();
@@ -131,7 +146,6 @@ class Shapes {
         System.out.println("Info for t2: ");
         t2.showStyle();
         t2.showDim();
-        t2.showColor();
         System.out.println("Area is " + t2.area());
 
         System.out.println();
