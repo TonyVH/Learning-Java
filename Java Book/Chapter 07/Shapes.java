@@ -4,23 +4,28 @@
 class TwoDShape {
     private double width;
     private double height;
+    private String name;
 
     TwoDShape() {
         width = height = 0.0;
+        name = "none";
     }
 
-    TwoDShape(double w, double h) {
+    TwoDShape(double w, double h, String n) {
         width = w;
         height = h;
+        name = n;
     }
 
-    TwoDShape(double x) {
+    TwoDShape(double x, String n) {
         width = height = x;
+        name = n;
     }
 
     TwoDShape(TwoDShape ob) {
         width = ob.width;
         height = ob.height;
+        name = ob.name;
     }
 
     // Accessor methods for width and height.
@@ -40,9 +45,22 @@ class TwoDShape {
         height = h;
     }
 
+    String getName() {
+        return name;
+    }
+
+    void setName(String n) {
+        name = n;
+    }
+
     void showDim() {
         System.out.println("Width and height are " +
                            width + " and " + height);
+    }
+
+    double area() {
+        System.out.println("area() must be overridden");
+        return 0.0;
     }
 }
 
@@ -54,11 +72,15 @@ class Rectangle extends TwoDShape {
     }
 
     Rectangle(double w, double h) {
-        super(w, h);
+        super(w, h, "rectangle");
     }
 
     Rectangle(double x) {
-        super(x);
+        super(x, "rectangle");
+    }
+
+    Rectangle(Rectangle ob) {
+        super(ob);
     }
 
     boolean isSquare() {
@@ -80,12 +102,12 @@ class Triangle extends TwoDShape {
     }
 
     Triangle(String s, double w, double h) {
-        super(w, h);
+        super(w, h, "triangle");
         style = s;
     }
 
     Triangle(double x) {
-        super(x);
+        super(x, "triangle");
         style = "filled";
     }
 
@@ -132,22 +154,18 @@ class ColorTriangle extends Triangle {
 
 class Shapes {
     public static void main(String args[]) {
-        Triangle t1 = new Triangle("outlined", 8.0, 12.0);
-        Triangle t2 = new Triangle(t1);
+        TwoDShape shapes[] = new TwoDShape[5];
 
+        shapes[0] = new Triangle("outlined", 8.0, 12.0);
+        shapes[1] = new Rectangle(10);
+        shapes[2] = new Rectangle(10, 4);
+        shapes[3] = new Triangle(7.0);
+        shapes[4] = new TwoDShape(10, 20, "generic");
 
-        System.out.println("Info for t1: ");
-        t1.showStyle();
-        t1.showDim();
-        System.out.println("Area is " + t1.area());
-
-        System.out.println();
-
-        System.out.println("Info for t2: ");
-        t2.showStyle();
-        t2.showDim();
-        System.out.println("Area is " + t2.area());
-
-        System.out.println();
+        for(int i = 0; i < shapes.length; i++) {
+            System.out.println("object is " + shapes[i].getName());
+            System.out.println("Area is " + shapes[i].area());
+            System.out.println();
+        }
     }
 }
