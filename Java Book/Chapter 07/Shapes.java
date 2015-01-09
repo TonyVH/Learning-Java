@@ -1,7 +1,7 @@
 // A simple class hierarchy.
 
 // A class for two-dimentional objects.
-class TwoDShape {
+abstract class TwoDShape {
     private double width;
     private double height;
     private String name;
@@ -58,10 +58,8 @@ class TwoDShape {
                            width + " and " + height);
     }
 
-    double area() {
-        System.out.println("area() must be overridden");
-        return 0.0;
-    }
+    // Now area() is abstract
+    abstract double area();
 }
 
 // A subclass of TwoDShape for Rectangles.
@@ -89,6 +87,26 @@ class Rectangle extends TwoDShape {
 
     double area() {
         return getWidth() * getHeight();
+    }
+}
+
+class Circle extends TwoDShape {
+    
+    Circle() {
+        super();
+    }
+
+    Circle(double x) {
+        super(x, "circle");
+    }
+
+    Circle(Circle ob) {
+        super(ob);
+    }
+
+    double area() {
+        double r = getWidth() / 2.0;
+        return Math.PI * r * r;
     }
 }
 
@@ -154,13 +172,12 @@ class ColorTriangle extends Triangle {
 
 class Shapes {
     public static void main(String args[]) {
-        TwoDShape shapes[] = new TwoDShape[5];
+        TwoDShape shapes[] = new TwoDShape[4];
 
         shapes[0] = new Triangle("outlined", 8.0, 12.0);
         shapes[1] = new Rectangle(10);
-        shapes[2] = new Rectangle(10, 4);
+        shapes[2] = new Circle(10);
         shapes[3] = new Triangle(7.0);
-        shapes[4] = new TwoDShape(10, 20, "generic");
 
         for(int i = 0; i < shapes.length; i++) {
             System.out.println("object is " + shapes[i].getName());
