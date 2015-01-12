@@ -67,5 +67,21 @@ class IQDemo {
             System.out.print(iQ.get());
         }
         System.out.println();
+
+        System.out.println(q1.length() + "\n" + q2.length() + "\n" + q3.length());
+
+        q1.reset();
+        q2.reset();
+        q3.reset();
+        for(i = 0; i < 10; i++) {
+            System.out.print(q1.get());
+            System.out.print("\n" + q3.get());
+        }
+        System.out.println();
+
+        for(i = 0; i < 5; i++) {
+            System.out.print(q2.get());
+        }
+        System.out.println();
     }
 }

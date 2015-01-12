@@ -3,12 +3,13 @@ package queue;
 // A circular queue.
 class CircularQueue implements ICharQ {
     private char q[];
-    private int putLoc, getLoc;
+    private int putLoc, getLoc, length;
     
     // Construact an empty queue given its size.
     public CircularQueue(int size) {
         q = new char[size+1];
         putLoc = getLoc = 0;
+        length = size;
     }
 
     // Put a character into the queue.
@@ -39,5 +40,14 @@ class CircularQueue implements ICharQ {
             getLoc = 0;
         }
         return ch;
+    }
+
+    public int length() {
+        return q.length;
+    }
+
+    public void reset() {
+        q = new char[length];
+        putLoc = getLoc = 0;
     }
 }

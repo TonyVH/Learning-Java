@@ -7,4 +7,10 @@ public interface ICharQ {
 
     // Get a character from the queue.
     char get();
+
+    // Return the length of the queue.
+    int length();
+
+    // Reset the queue and index values.
+    void reset();
 }
