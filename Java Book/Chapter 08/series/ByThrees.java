@@ -1,34 +1,34 @@
 package series;
 
-class ByTwos implements Series {
+class ByThrees implements Series {
     int start;
     int val;
     int prev;
 
-    ByTwos() {
+    ByThrees() {
         start = 0;
         val = 0;
-        prev = -2;
+        prev = -3;
     }
 
     public int getNext() {
         prev = val;
-        val += 2;
+        val += 3;
         return val;
     }
 
     public void reset() {
         val = start;
-        prev = start - 2;
+        prev = start -3;
     }
 
     public void setStart(int x) {
         start = x;
         val = x;
-        prev = x - 2;
+        prev = x - 3;
     }
 
     int getPrevious() {
-        return prev; 
+        return prev;
     }
 }
