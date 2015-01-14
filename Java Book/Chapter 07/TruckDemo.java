@@ -2,7 +2,7 @@
     Try This 7-1
     Build a supclass of Behicle for trucks.
 */
-class Vehicle {
+class Vehicle implements VehicleIF{
     private int passengers;
     private int fuelCap;
     private int mpg;
@@ -13,35 +13,35 @@ class Vehicle {
         mpg = m;
     }
 
-    int range() {
+    public int range() {
         return mpg * fuelCap;
     }
 
-    double fuelNeeded(int miles) {
+    public double fuelNeeded(int miles) {
         return (double) miles / mpg;
     }
 
-    int getPassengers() {
+    public int getPassengers() {
         return passengers;
     }
 
-    void setPassengers(int p) {
+    public void setPassengers(int p) {
         passengers = p;
     }
         
-    int getFuelCap() {
+    public int getFuelCap() {
         return fuelCap;
     }
 
-    void setFuelCap(int f) {
+    public void setFuelCap(int f) {
         fuelCap = f;
     }
 
-    int getMpg() {
+    public int getMpg() {
         return mpg;
     }
 
-    void setMpg(int m) {
+    public void setMpg(int m) {
         mpg = m;
     }
 }
