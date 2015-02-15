@@ -11,7 +11,7 @@ class ShowFile2 {
         int i;
         FileInputStream fileIn = null;
 
-        if(args.length < 1) {
+        if(args.length != 1) {
             System.out.println("Usage: ShowFile2 File");
             return;
         }

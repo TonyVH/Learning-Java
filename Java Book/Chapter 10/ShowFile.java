@@ -16,7 +16,7 @@ class ShowFile {
         FileInputStream fileIn;
 
         // First make sure that a file has been specified.
-        if(args.length < 1) {
+        if(args.length != 1) {
             System.out.println("Usage: ShowFile File");
             return;
         }
